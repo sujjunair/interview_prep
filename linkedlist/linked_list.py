@@ -10,6 +10,8 @@ class LinkedList(object):
         self.tail = None
 
     def add(self, elem):
+        """Add elem to tail
+        """
         if self.head is None:
             self.head = Node(elem)
             self.tail = self.head
@@ -18,6 +20,8 @@ class LinkedList(object):
             self.tail = self.tail.next_node
 
     def insert(self, elem):
+        """Add elem to head
+        """
         new_node = Node(elem)
         new_node.next_node = self.head
         self.head = new_node
@@ -74,6 +78,13 @@ class LinkedList(object):
         self.head = prev
 
 def has_loop(node):
+    """Determine if linked list has a loop
+    init slow ptr to head
+    init fast ptr to head+1
+    move slow ptr by 1
+    move fast ptr by 2
+    if slow == fast, then loop
+    """
     if node is None:
         return False
 
